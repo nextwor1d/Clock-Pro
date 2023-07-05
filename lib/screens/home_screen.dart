@@ -61,13 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
         textStyle: Theme.of(context).textTheme.bodyLarge,
         tabs: [
           GButton(
-            icon: Icons.access_time,
-            gap: 5,
-            text: 'Clock',
-          ),
-          GButton(
             icon: Icons.language_rounded,
             text: 'World',
+            gap: 5,
+          ),
+          GButton(
+            icon: Icons.timer_outlined,
+            text: 'Timer',
             gap: 5,
           ),
           GButton(
