@@ -1,6 +1,5 @@
 // ignore_for_file: avoid_print, use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors
 
-import 'package:clock_pro/screens/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 

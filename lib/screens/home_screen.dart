@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import '../models/theme_controller.dart';
-import 'world.dart';
+import 'cock_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -59,8 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
         textStyle: Theme.of(context).textTheme.bodyLarge,
         tabs: [
           GButton(
-            icon: Icons.language_rounded,
-            text: 'World',
+            icon: Icons.watch_later_outlined,
+            text: 'Clock',
             gap: 5,
           ),
           GButton(

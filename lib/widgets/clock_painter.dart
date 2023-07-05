@@ -20,11 +20,11 @@ class ClockPainter extends CustomPainter {
     // hour calculation
     double hourX = centerX +
         size.width *
-            0.3 *
+            0.24 *
             cos((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180);
     double hourY = centerY +
         size.width *
-            0.3 *
+            0.24 *
             sin((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180);
 
     // hour line
@@ -38,9 +38,9 @@ class ClockPainter extends CustomPainter {
 
     // minute calculation
     double minX =
-        centerX + size.width * 0.35 * cos((dateTime.minute * 6) * pi / 180);
+        centerX + size.width * 0.34 * cos((dateTime.minute * 6) * pi / 180);
     double minY =
-        centerY + size.width * 0.35 * sin((dateTime.minute * 6) * pi / 180);
+        centerY + size.width * 0.34 * sin((dateTime.minute * 6) * pi / 180);
 
     // minutes line
     canvas.drawLine(
