@@ -59,17 +59,6 @@ class CountryCards extends StatelessWidget {
                     style: GoogleFonts.lato(
                         textStyle: Theme.of(context).textTheme.displaySmall),
                   ),
-
-                  // period
-                  RotatedBox(
-                    quarterTurns: 3,
-                    child: Text(
-                      'PM',
-                      style: GoogleFonts.lato(
-                        textStyle: Theme.of(context).textTheme.bodySmall,
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ],

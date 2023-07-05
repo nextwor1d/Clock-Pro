@@ -2,7 +2,6 @@
 
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,10 +19,14 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  Timer? _timer;
   DateTime _datTime = DateTime.now();
   DateTime washingtonT = DateTime.now();
   DateTime londonT = DateTime.now();
   DateTime parisT = DateTime.now();
+  DateTime frankfurtT = DateTime.now();
+  DateTime chinaT = DateTime.now();
+  DateTime japanT = DateTime.now();
 
   void getTimeIn() {
     DateTime now = DateTime.now().toUtc();
@@ -38,15 +41,23 @@ class _BodyState extends State<Body> {
     tz.TZDateTime londonTime = tz.TZDateTime.from(now, london);
     londonT = londonTime;
 
-    tz.Location paris = tz.getLocation('Europe/Paris');
-    tz.TZDateTime parisTime = tz.TZDateTime.from(now, paris);
-    parisT = parisTime;
+    tz.Location frankfurt = tz.getLocation('Europe/Berlin');
+    tz.TZDateTime frankfurtTime = tz.TZDateTime.from(now, frankfurt);
+    frankfurtT = frankfurtTime;
+
+    tz.Location china = tz.getLocation('Asia/Shanghai');
+    tz.TZDateTime chinaTime = tz.TZDateTime.from(now, china);
+    chinaT = chinaTime;
+
+    tz.Location japan = tz.getLocation('Asia/Tokyo');
+    tz.TZDateTime japanTime = tz.TZDateTime.from(now, japan);
+    japanT = japanTime;
   }
 
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         _datTime = DateTime.now();
         getTimeIn();
@@ -55,35 +66,53 @@ class _BodyState extends State<Body> {
   }
 
   @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     List countryList = [
       // name, Time difference, flag, time
       [
         'United States',
-        'UTC 5:00',
+        'UTC -4',
         Flag(Flags.united_states_of_america, size: 45),
         '${washingtonT.hour}:${washingtonT.minute}',
       ],
       [
-        'London',
-        'UTC 1:00',
+        'England',
+        'UTC +1',
         Flag(Flags.england, size: 45),
         '${londonT.hour}:${londonT.minute}',
       ],
       [
-        'Paris',
-        'UTC 2:00',
-        Flag(Flags.france, size: 45),
-        '${parisT.hour}:${parisT.minute}',
+        'Germany',
+        'UTC +8',
+        Flag(Flags.germany, size: 45),
+        '${frankfurtT.hour}:${frankfurtT.minute}',
+      ],
+      [
+        'China',
+        'UTC +8',
+        Flag(Flags.china, size: 45),
+        '${chinaT.hour}:${chinaT.minute}',
+      ],
+      [
+        'Japan',
+        'UTC +9',
+        Flag(Flags.japan, size: 45),
+        '${japanT.hour}:${japanT.minute}',
       ],
     ];
     double width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // TimeZone
+        // Current Time
         Text(
-          'Time Zone',
+          'Current Time Zone',
           style: GoogleFonts.lato(
             textStyle: Theme.of(context).textTheme.bodyLarge,
           ),

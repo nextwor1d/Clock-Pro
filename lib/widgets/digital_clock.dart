@@ -15,7 +15,6 @@ class DigitalClock extends StatefulWidget {
 }
 
 class _DigitalClockState extends State<DigitalClock> {
-  TimeOfDay _timeOfDay = TimeOfDay.now();
   DateTime _dateTime = DateTime.now();
 
   @override
@@ -23,9 +22,6 @@ class _DigitalClockState extends State<DigitalClock> {
     super.initState();
     Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
-        if (_timeOfDay.minute != TimeOfDay.now().minute) {
-          _timeOfDay = TimeOfDay.now();
-        }
         _dateTime = DateTime.now();
       });
     });
@@ -33,27 +29,15 @@ class _DigitalClockState extends State<DigitalClock> {
 
   @override
   Widget build(BuildContext context) {
-    String period = _timeOfDay.period == DayPeriod.am ? 'AM' : 'PM';
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // Time
         Text(
-          '${_timeOfDay.hourOfPeriod}:${_timeOfDay.minute.toString().padLeft(2, '0')}:${_dateTime.second.toString().padLeft(2, '0')}',
+          '${_dateTime.hour}:${_dateTime.minute.toString().padLeft(2, '0')}:${_dateTime.second.toString().padLeft(2, '0')}',
           style: GoogleFonts.lato(
               textStyle: Theme.of(context).textTheme.displayMedium),
         ).marginOnly(right: 5),
-
-        // pm/am
-        RotatedBox(
-          quarterTurns: 3,
-          child: Text(
-            period,
-            style: GoogleFonts.lato(
-              textStyle: Theme.of(context).textTheme.bodyLarge,
-            ),
-          ),
-        ),
       ],
     );
   }
