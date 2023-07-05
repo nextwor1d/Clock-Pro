@@ -23,31 +23,24 @@ class _BodyState extends State<Body> {
   DateTime _datTime = DateTime.now();
   DateTime washingtonT = DateTime.now();
   DateTime londonT = DateTime.now();
+  DateTime parisT = DateTime.now();
 
-  void getTimeInWashington() {
-    // Get the current UTC time
+  void getTimeIn() {
     DateTime now = DateTime.now().toUtc();
 
     // Load the 'America/New_York' timezone
     tz.Location washington = tz.getLocation('America/New_York');
-
     // Convert the UTC time to Washington time
     tz.TZDateTime washingtonTime = tz.TZDateTime.from(now, washington);
-
     washingtonT = washingtonTime;
-  }
 
-  void getTimeInLondon() {
-    // Get the current UTC time
-    DateTime now = DateTime.now().toUtc();
-
-    // Load the 'Europe/London' timezone
     tz.Location london = tz.getLocation('Europe/London');
-
-    // Convert the UTC time to London time
     tz.TZDateTime londonTime = tz.TZDateTime.from(now, london);
-
     londonT = londonTime;
+
+    tz.Location paris = tz.getLocation('Europe/Paris');
+    tz.TZDateTime parisTime = tz.TZDateTime.from(now, paris);
+    parisT = parisTime;
   }
 
   @override
@@ -56,7 +49,7 @@ class _BodyState extends State<Body> {
     Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         _datTime = DateTime.now();
-        getTimeInWashington();
+        getTimeIn();
       });
     });
   }
@@ -76,6 +69,12 @@ class _BodyState extends State<Body> {
         'UTC 1:00',
         Flag(Flags.england, size: 45),
         '${londonT.hour}:${londonT.minute}',
+      ],
+      [
+        'Paris',
+        'UTC 2:00',
+        Flag(Flags.france, size: 45),
+        '${parisT.hour}:${parisT.minute}',
       ],
     ];
     double width = MediaQuery.of(context).size.width;
