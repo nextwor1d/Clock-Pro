@@ -38,7 +38,7 @@ class CountryCards extends StatelessWidget {
                     textStyle: Theme.of(context).textTheme.titleLarge),
               ),
               Text(
-                '+3 HRS',
+                utc,
                 style: GoogleFonts.lato(
                     textStyle: Theme.of(context).textTheme.bodyMedium),
               ).marginOnly(top: 5),
@@ -48,10 +48,7 @@ class CountryCards extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Flag
-              Flag(
-                flag,
-                size: 40,
-              ),
+              flag,
 
               // Time
               Row(

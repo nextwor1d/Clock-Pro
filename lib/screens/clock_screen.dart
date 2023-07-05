@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:icons_plus/icons_plus.dart';
 import '../widgets/country_cards.dart';
 import '../widgets/digital_clock.dart';
 import '../widgets/clock_painter.dart';
@@ -20,7 +21,8 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   DateTime _datTime = DateTime.now();
-  DateTime countryTime = DateTime.now();
+  DateTime washingtonT = DateTime.now();
+  DateTime londonT = DateTime.now();
 
   void getTimeInWashington() {
     // Get the current UTC time
@@ -32,7 +34,20 @@ class _BodyState extends State<Body> {
     // Convert the UTC time to Washington time
     tz.TZDateTime washingtonTime = tz.TZDateTime.from(now, washington);
 
-    countryTime = washingtonTime;
+    washingtonT = washingtonTime;
+  }
+
+  void getTimeInLondon() {
+    // Get the current UTC time
+    DateTime now = DateTime.now().toUtc();
+
+    // Load the 'Europe/London' timezone
+    tz.Location london = tz.getLocation('Europe/London');
+
+    // Convert the UTC time to London time
+    tz.TZDateTime londonTime = tz.TZDateTime.from(now, london);
+
+    londonT = londonTime;
   }
 
   @override
@@ -50,7 +65,18 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     List countryList = [
       // name, Time difference, flag, time
-      ['NewYork City', 'UTC−05:00','Flags.united_states_of_america' , '${countryTime.hour}:${countryTime.minute}']
+      [
+        'United States',
+        'UTC 5:00',
+        Flag(Flags.united_states_of_america, size: 45),
+        '${washingtonT.hour}:${washingtonT.minute}',
+      ],
+      [
+        'London',
+        'UTC 1:00',
+        Flag(Flags.england, size: 45),
+        '${londonT.hour}:${londonT.minute}',
+      ],
     ];
     double width = MediaQuery.of(context).size.width;
     return Column(
@@ -94,7 +120,7 @@ class _BodyState extends State<Body> {
         Expanded(
           child: GridView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 1,
+            itemCount: countryList.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
               childAspectRatio: 2 / 3,
