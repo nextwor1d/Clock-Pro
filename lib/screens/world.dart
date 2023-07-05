@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/country_cards.dart';
 import '../widgets/digital_clock.dart';
-import 'clock_painter.dart';
+import '../widgets/clock_painter.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});

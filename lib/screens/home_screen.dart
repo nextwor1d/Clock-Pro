@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:clock_pro/screens/count_down.screen.dart';
+import 'package:clock_pro/screens/count_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import '../models/theme_controller.dart';
-import '../widgets/body.dart';
+import 'world.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,6 +18,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final ThemeController _themeController = Get.put(ThemeController());
   int _currentIndex = 0;
+
+  List<Widget> tabs = [
+    Body(),
+    CountUpTimerPage(),
+    CountDownTimerPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       // Body
-      body: Body(),
+      body: tabs[_currentIndex],
       // bottomNavigationBar
       bottomNavigationBar: GNav(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -65,11 +73,6 @@ class _HomeScreenState extends State<HomeScreen> {
           GButton(
             icon: Icons.alarm,
             text: 'Alarm',
-            gap: 5,
-          ),
-          GButton(
-            icon: Icons.timer_outlined,
-            text: 'Timer',
             gap: 5,
           ),
         ],
