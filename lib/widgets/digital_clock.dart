@@ -16,6 +16,7 @@ class DigitalClock extends StatefulWidget {
 
 class _DigitalClockState extends State<DigitalClock> {
   TimeOfDay _timeOfDay = TimeOfDay.now();
+  DateTime _dateTime = DateTime.now();
 
   @override
   void initState() {
@@ -25,6 +26,7 @@ class _DigitalClockState extends State<DigitalClock> {
         if (_timeOfDay.minute != TimeOfDay.now().minute) {
           _timeOfDay = TimeOfDay.now();
         }
+        _dateTime = DateTime.now();
       });
     });
   }
@@ -37,7 +39,7 @@ class _DigitalClockState extends State<DigitalClock> {
       children: [
         // Time
         Text(
-          '${_timeOfDay.hourOfPeriod}:${_timeOfDay.minute.toString().padLeft(2, '0')}',
+          '${_timeOfDay.hourOfPeriod}:${_timeOfDay.minute.toString().padLeft(2, '0')}:${_dateTime.second.toString().padLeft(2, '0')}',
           style: GoogleFonts.lato(
               textStyle: Theme.of(context).textTheme.displayMedium),
         ).marginOnly(right: 5),
