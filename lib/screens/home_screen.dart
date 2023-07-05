@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import '../models/theme_controller.dart';
-import 'cock_screen.dart';
+import 'clock_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> tabs = [
     Body(),
-    CountUpTimerPage(),
+    CountUpTimerScreen(),
   ];
 
   @override

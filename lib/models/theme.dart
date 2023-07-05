@@ -9,8 +9,8 @@ ThemeData themeData(BuildContext context) {
       bodySmall: GoogleFonts.lato(color: Colors.grey),
       bodyMedium: GoogleFonts.lato(color: Colors.grey),
       bodyLarge: GoogleFonts.lato(color: Colors.grey),
-      displaySmall:
-          GoogleFonts.lato(color: Colors.black, fontWeight: FontWeight.w300),
+      displaySmall: GoogleFonts.lato(
+          color: Colors.black, fontWeight: FontWeight.w300, fontSize: 38),
       displayMedium: GoogleFonts.lato(
           fontSize: 70, color: Colors.black, fontWeight: FontWeight.w300),
       titleLarge: GoogleFonts.lato(color: Colors.black),
@@ -25,8 +25,8 @@ ThemeData darkThemeData(BuildContext context) {
       bodySmall: GoogleFonts.lato(color: Colors.grey),
       bodyMedium: GoogleFonts.lato(color: Colors.grey),
       bodyLarge: GoogleFonts.lato(color: Colors.grey),
-      displaySmall:
-          GoogleFonts.lato(color: Colors.white, fontWeight: FontWeight.w300),
+      displaySmall: GoogleFonts.lato(
+          color: Colors.white, fontWeight: FontWeight.w300, fontSize: 38),
       displayMedium: GoogleFonts.lato(
           fontSize: 70, color: Colors.white, fontWeight: FontWeight.w300),
       titleLarge: GoogleFonts.lato(color: Colors.white),

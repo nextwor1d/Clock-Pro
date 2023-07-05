@@ -7,8 +7,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'bloc/sample_bloc.dart';
 import 'models/theme.dart';
 import 'screens/home_screen.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 void main() async {
+  tz.initializeTimeZones();
   await Hive.initFlutter();
   runApp(MyApp());
 }

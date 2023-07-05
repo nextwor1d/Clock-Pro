@@ -1,21 +1,22 @@
 // ignore_for_file: prefer_const_constructors
 
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:icons_plus/icons_plus.dart';
 
-class CountryCards extends StatefulWidget {
-  const CountryCards({
-    super.key,
-  });
+class CountryCards extends StatelessWidget {
+  final String name;
+  final String utc;
+  final Flag flag;
+  final String time;
 
-  @override
-  State<CountryCards> createState() => _CountryCardsState();
-}
-
-class _CountryCardsState extends State<CountryCards> {
+  const CountryCards(
+      {super.key,
+      required this.name,
+      required this.time,
+      required this.utc,
+      required this.flag});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _CountryCardsState extends State<CountryCards> {
             children: [
               // country
               Text(
-                'NewYork City',
+                name,
                 style: GoogleFonts.lato(
                     textStyle: Theme.of(context).textTheme.titleLarge),
               ),
@@ -48,7 +49,7 @@ class _CountryCardsState extends State<CountryCards> {
             children: [
               // Flag
               Flag(
-                Flags.united_states_of_america,
+                flag,
                 size: 40,
               ),
 
@@ -57,10 +58,10 @@ class _CountryCardsState extends State<CountryCards> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    "12:30",
+                    time,
                     style: GoogleFonts.lato(
                         textStyle: Theme.of(context).textTheme.displaySmall),
-                  ).marginOnly(right: 5),
+                  ),
 
                   // period
                   RotatedBox(
