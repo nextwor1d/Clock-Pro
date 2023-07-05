@@ -37,7 +37,7 @@ class _DigitalClockState extends State<DigitalClock> {
       children: [
         // Time
         Text(
-          '${_timeOfDay.hourOfPeriod}:${_timeOfDay.minute}',
+          '${_timeOfDay.hourOfPeriod}:${_timeOfDay.minute.toString().padLeft(2, '0')}',
           style: GoogleFonts.lato(
               textStyle: Theme.of(context).textTheme.displayMedium),
         ).marginOnly(right: 5),

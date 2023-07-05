@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,10 +10,25 @@ import '../widgets/country_cards.dart';
 import '../widgets/digital_clock.dart';
 import 'clock_painter.dart';
 
-class Body extends StatelessWidget {
-  Body({super.key});
+class Body extends StatefulWidget {
+  const Body({super.key});
 
-  final DateTime _datTime = DateTime.now();
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  DateTime _datTime = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        _datTime = DateTime.now();
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +62,11 @@ class Body extends StatelessWidget {
               ),
             ],
           ),
-          child: CustomPaint(
-            painter: ClockPainter(context, _datTime),
+          child: Transform.rotate(
+            angle: -pi / 2,
+            child: CustomPaint(
+              painter: ClockPainter(context, _datTime),
+            ),
           ),
         ),
 

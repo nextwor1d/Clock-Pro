@@ -1,12 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 class ClockPainter extends CustomPainter {
   final BuildContext context;
   DateTime dateTime;
-
   ClockPainter(this.context, this.dateTime);
+
   @override
   void paint(Canvas canvas, Size size) {
     double centerX = size.width / 2;
@@ -16,36 +17,54 @@ class ClockPainter extends CustomPainter {
     // circle
     canvas.drawCircle(center, 7, Paint()..color = Colors.grey);
 
+    // hour calculation
+    double hourX = centerX +
+        size.width *
+            0.3 *
+            cos((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180);
+    double hourY = centerY +
+        size.width *
+            0.3 *
+            sin((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180);
+
     // hour line
     canvas.drawLine(
         center,
-        Offset(100, 180),
+        Offset(hourX, hourY),
         Paint()
           ..color = Colors.grey
           ..style = PaintingStyle.stroke
-          ..strokeWidth = 5);
+          ..strokeWidth = 6);
+
+    // minute calculation
+    double minX =
+        centerX + size.width * 0.35 * cos((dateTime.minute * 6) * pi / 180);
+    double minY =
+        centerY + size.width * 0.35 * sin((dateTime.minute * 6) * pi / 180);
 
     // minutes line
     canvas.drawLine(
         center,
-        Offset(60, 170),
+        Offset(minX, minY),
         Paint()
           ..color = Colors.grey
           ..style = PaintingStyle.stroke
-          ..strokeWidth = 3);
+          ..strokeWidth = 4);
+
+    // second calculation
+    double secondX =
+        centerX + size.width * 0.4 * cos((dateTime.second * 6) * pi / 180);
+    double secondY =
+        centerY + size.width * 0.4 * sin((dateTime.second * 6) * pi / 180);
 
     // seconds line
     canvas.drawLine(
         center,
-        Offset(30, 150),
+        Offset(secondX, secondY),
         Paint()
           ..color = Colors.grey
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1.5);
-
-    // second calculation
-    double secondX = centerY;
-    double secondY = centerY;
   }
 
   @override
