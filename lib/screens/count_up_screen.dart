@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, use_key_in_widget_constructors, library_private_types_in_public_api
+// ignore_for_file: avoid_print, use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors
 
 import 'package:clock_pro/screens/rounded_button.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +64,7 @@ class _State extends State<CountUpTimerPage> {
                           padding: const EdgeInsets.all(8),
                           child: Text(
                             displayTime,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 40,
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold),
@@ -77,21 +77,22 @@ class _State extends State<CountUpTimerPage> {
 
                 /// Lap time.
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   child: SizedBox(
-                    height: 100,
+                    height: 340,
+                    width: 200,
                     child: StreamBuilder<List<StopWatchRecord>>(
                       stream: _stopWatchTimer.records,
                       initialData: _stopWatchTimer.records.value,
                       builder: (context, snap) {
                         final value = snap.data!;
                         if (value.isEmpty) {
-                          return const SizedBox.shrink();
+                          return SizedBox.shrink();
                         }
-                        Future.delayed(const Duration(milliseconds: 100), () {
+                        Future.delayed(Duration(milliseconds: 100), () {
                           _scrollController.animateTo(
                               _scrollController.position.maxScrollExtent,
-                              duration: const Duration(milliseconds: 200),
+                              duration: Duration(milliseconds: 200),
                               curve: Curves.easeOut);
                         });
                         print('Listen records. $value');
@@ -103,16 +104,16 @@ class _State extends State<CountUpTimerPage> {
                             return Column(
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.all(8),
+                                  padding: EdgeInsets.all(8),
                                   child: Text(
                                     '${index + 1} ${data.displayTime}',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                         fontSize: 17,
                                         fontFamily: 'Helvetica',
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                                const Divider(
+                                Divider(
                                   height: 1,
                                 )
                               ],
@@ -127,51 +128,27 @@ class _State extends State<CountUpTimerPage> {
 
                 /// Button
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: RoundedButton(
-                        color: Colors.lightBlue,
-                        onTap: _stopWatchTimer.onStartTimer,
-                        child: const Text(
-                          'Start',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
+                    IconButton(
+                      icon: Icon(Icons.play_arrow),
+                      iconSize: 50,
+                      onPressed: _stopWatchTimer.onStartTimer,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: RoundedButton(
-                        color: Colors.green,
-                        onTap: _stopWatchTimer.onStopTimer,
-                        child: const Text(
-                          'Stop',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
+                    IconButton(
+                      icon: Icon(Icons.pause),
+                      iconSize: 50,
+                      onPressed: _stopWatchTimer.onStopTimer,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: RoundedButton(
-                        color: Colors.red,
-                        onTap: _stopWatchTimer.onResetTimer,
-                        child: const Text(
-                          'Reset',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
+                    IconButton(
+                      icon: Icon(Icons.restore),
+                      iconSize: 50,
+                      onPressed: _stopWatchTimer.onResetTimer,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(0).copyWith(right: 8),
-                      child: RoundedButton(
-                        color: Colors.deepPurpleAccent,
-                        onTap: _stopWatchTimer.onAddLap,
-                        child: const Text(
-                          'Lap',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
+                    IconButton(
+                      icon: Icon(Icons.playlist_add),
+                      iconSize: 50,
+                      onPressed: _stopWatchTimer.onAddLap,
                     ),
                   ],
                 ),

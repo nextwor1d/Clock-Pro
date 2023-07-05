@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:clock_pro/screens/count_down.screen.dart';
 import 'package:clock_pro/screens/count_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
     Body(),
     CountUpTimerPage(),
-    CountDownTimerPage(),
   ];
 
   @override
@@ -68,11 +66,6 @@ class _HomeScreenState extends State<HomeScreen> {
           GButton(
             icon: Icons.timer_outlined,
             text: 'Timer',
-            gap: 5,
-          ),
-          GButton(
-            icon: Icons.alarm,
-            text: 'Alarm',
             gap: 5,
           ),
         ],
