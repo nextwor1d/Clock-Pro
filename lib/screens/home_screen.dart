@@ -71,9 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         selectedIndex: _currentIndex,
         onTabChange: (value) {
-          setState(() {
-            _currentIndex = value;
-          });
+          setState(() => _currentIndex = value);
         },
       ),
     );
