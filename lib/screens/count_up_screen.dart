@@ -65,7 +65,7 @@ class _State extends State<CountUpTimerScreen> {
             },
           ),
 
-          /// Lap time.
+          // Lap time.
           Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
             child: SizedBox(
@@ -116,7 +116,7 @@ class _State extends State<CountUpTimerScreen> {
             ),
           ),
 
-          /// Button
+          // Buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[

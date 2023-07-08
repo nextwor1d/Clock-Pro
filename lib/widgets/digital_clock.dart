@@ -21,9 +21,7 @@ class _DigitalClockState extends State<DigitalClock> {
   void initState() {
     super.initState();
     Timer.periodic(Duration(seconds: 1), (timer) {
-      setState(() {
-        _dateTime = DateTime.now();
-      });
+      setState(() => _dateTime = DateTime.now());
     });
   }
 

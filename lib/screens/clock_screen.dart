@@ -117,7 +117,7 @@ class _BodyState extends State<Body> {
           ),
         ),
 
-        // DigitalClock
+        // Digital Clock
         DigitalClock(),
 
         // Analog Clock
@@ -147,7 +147,7 @@ class _BodyState extends State<Body> {
           ),
         ),
 
-        // CountryCards
+        // Country Cards
         Expanded(
           flex: 3,
           child: GridView.builder(

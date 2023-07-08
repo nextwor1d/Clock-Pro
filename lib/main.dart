@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'bloc/sample_bloc.dart';
 import 'models/theme.dart';
-import 'screens/home_screen.dart';
+import 'screens/home.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 void main() async {
