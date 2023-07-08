@@ -106,7 +106,6 @@ class _BodyState extends State<Body> {
         '${japanT.hour}:${japanT.minute}',
       ],
     ];
-    double width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -122,30 +121,35 @@ class _BodyState extends State<Body> {
         DigitalClock(),
 
         // Analog Clock
-        Container(
-          margin: EdgeInsets.only(bottom: 15, top: 10),
-          height: width / 1.5,
-          width: width / 1.5,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Theme.of(context).primaryColor,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 10,
+        Expanded(
+          flex: 7,
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 30),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Theme.of(context).primaryColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 10,
+                  ),
+                ],
               ),
-            ],
-          ),
-          child: Transform.rotate(
-            angle: -pi / 2,
-            child: CustomPaint(
-              painter: ClockPainter(context, _datTime),
+              child: Transform.rotate(
+                angle: -pi / 2,
+                child: CustomPaint(
+                  painter: ClockPainter(context, _datTime),
+                ),
+              ),
             ),
           ),
         ),
 
         // CountryCards
         Expanded(
+          flex: 3,
           child: GridView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: countryList.length,

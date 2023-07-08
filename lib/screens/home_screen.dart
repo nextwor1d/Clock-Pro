@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       // Body
-      body: tabs[_currentIndex],
+      body: IndexedStack(index: _currentIndex, children: tabs),
       // bottomNavigationBar
       bottomNavigationBar: GNav(
         mainAxisAlignment: MainAxisAlignment.center,
