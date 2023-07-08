@@ -11,3 +11,18 @@
   <a href="https://twitter.com/nextwor1d"><img src="https://img.shields.io/badge/twitter-1da1f2?style=for-the-badge&logo=twitter&logoColor=white&color=1da1f2"/></a>
   <a href="https://linkedin.com/in/nextwor1d"><img src="https://img.shields.io/badge/linkedin-0c67c2?style=for-the-badge&logo=linkedin"/></a>
 </p>
+
+# Clock Pro v1.0.0
+
+- Display the current local time accurately. Upon opening the app, users are greeted with a clean and elegant interface that prominently showcases the local time based on the device's location.
+
+- In addition to the local time, the Clock App offers the functionality to view the time in five other time zones (USA, England, Germany, China, Japan).
+
+- To enhance its utility further, the Clock App also includes a timer counter. Users can set a specific duration for the timer and start it with a single tap.
+
+---
+
+![Preview](assets/0.jpg)
+
+
+
