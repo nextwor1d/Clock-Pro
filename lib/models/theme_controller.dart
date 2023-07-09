@@ -16,7 +16,6 @@ class ThemeController extends GetxController {
     final savedTheme = themeBox.get('theme'); // Retrieve the saved theme mode
     if (savedTheme != null) {
       isDarkMode.value = savedTheme; // Update the isDarkMode value
-      Get.changeThemeMode(isDarkMode.value ? ThemeMode.dark : ThemeMode.light);
     }
   }
 
