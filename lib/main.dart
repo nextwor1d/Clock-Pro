@@ -31,10 +31,6 @@ class MyApp extends StatelessWidget {
       theme: themeData(context),
       darkTheme: darkThemeData(context),
       home: HomeScreen(),
-      // initialRoute: '/home',
-      // getPages: [
-      //   GetPage(name: '/home', page: () => HomeScreen()),
-      // ],
     );
   }
 }
