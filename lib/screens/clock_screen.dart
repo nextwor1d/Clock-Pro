@@ -31,9 +31,8 @@ class _BodyState extends State<Body> {
   void getTimeIn() {
     DateTime now = DateTime.now().toUtc();
 
-    // Load the 'America/New_York' timezone
     tz.Location washington = tz.getLocation('America/New_York');
-    // Convert the UTC time to Washington time
+
     tz.TZDateTime washingtonTime = tz.TZDateTime.from(now, washington);
     washingtonT = washingtonTime;
 
