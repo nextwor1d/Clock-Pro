@@ -93,6 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   Uri.parse('https://instagram.com/flutter_hero'),
                   mode: LaunchMode.externalApplication),
             ),
+            Divider(),
+            Text(
+              'Contact Me',
+              textAlign: TextAlign.center,
+            )
           ],
         ),
       ),
