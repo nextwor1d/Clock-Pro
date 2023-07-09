@@ -23,6 +23,7 @@ class ThemeController extends GetxController {
   void toggleTheme() {
     isDarkMode.value = !isDarkMode.value;
     Get.changeThemeMode(isDarkMode.value ? ThemeMode.dark : ThemeMode.light);
-    themeBox.put('theme', isDarkMode.value); // Save the updated theme mode to Hive
+    themeBox.put(
+        'theme', isDarkMode.value); // Save the updated theme mode to Hive
   }
 }
