@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/nextwor1d">
-    <img height="90" src="https://github.com/nextwor1d/nextwor1d/blob/main/assets/nextwor1d.png"/></a>
+    <img height="150" src="https://github.com/nextwor1d/nextwor1d/blob/main/nextwor1d.png"/></a>
 </p>
 
 <p align="center">
