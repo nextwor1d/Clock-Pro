@@ -24,10 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: controller.isDarkMode.value
-          ? ThemeMode.dark
-          : ThemeMode
-              .light, // Use the value from the ThemeController to set the theme mode
+      themeMode: controller.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
       theme: themeData(context),
       darkTheme: darkThemeData(context),
       home: HomeScreen(),
