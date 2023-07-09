@@ -17,9 +17,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-
   final ThemeController controller = Get.put(ThemeController());
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
