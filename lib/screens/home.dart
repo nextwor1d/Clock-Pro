@@ -20,11 +20,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final ThemeController _themeController = Get.put(ThemeController());
   int _currentIndex = 0;
 
-  List<Widget> tabs = [
-    Body(),
-    TimerScreen(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +97,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       // Body
-      body: IndexedStack(index: _currentIndex, children: tabs),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: [
+          Body(),
+          TimerScreen(),
+        ],
+      ),
       // bottomNavigationBar
       bottomNavigationBar: GNav(
         mainAxisAlignment: MainAxisAlignment.center,
