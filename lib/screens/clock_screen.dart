@@ -79,31 +79,31 @@ class _BodyState extends State<Body> {
         'United States',
         'UTC -4',
         Flag(Flags.united_states_of_america, size: 45),
-        '${washingtonT.hour}:${washingtonT.minute}',
+        '${washingtonT.hour}:${washingtonT.minute.toString().padLeft(2, '0')}',
       ],
       [
         'England',
         'UTC +1',
         Flag(Flags.england, size: 45),
-        '${londonT.hour}:${londonT.minute}',
+        '${londonT.hour}:${londonT.minute.toString().padLeft(2, '0')}',
       ],
       [
         'Germany',
         'UTC +8',
         Flag(Flags.germany, size: 45),
-        '${frankfurtT.hour}:${frankfurtT.minute}',
+        '${frankfurtT.hour}:${frankfurtT.minute.toString().padLeft(2, '0')}',
       ],
       [
         'China',
         'UTC +8',
         Flag(Flags.china, size: 45),
-        '${chinaT.hour}:${chinaT.minute}',
+        '${chinaT.hour}:${chinaT.minute.toString().padLeft(2, '0')}',
       ],
       [
         'Japan',
         'UTC +9',
         Flag(Flags.japan, size: 45),
-        '${japanT.hour}:${japanT.minute}',
+        '${japanT.hour}:${japanT.minute.toString().padLeft(2, '0')}',
       ],
     ];
     return Column(

@@ -3,12 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
-class CountUpTimerScreen extends StatefulWidget {
+class TimerScreen extends StatefulWidget {
   static Future<void> navigatorPush(BuildContext context) async {
     return Navigator.push<void>(
       context,
       MaterialPageRoute(
-        builder: (_) => CountUpTimerScreen(),
+        builder: (_) => TimerScreen(),
       ),
     );
   }
@@ -17,7 +17,7 @@ class CountUpTimerScreen extends StatefulWidget {
   _State createState() => _State();
 }
 
-class _State extends State<CountUpTimerScreen> {
+class _State extends State<TimerScreen> {
   final _isHours = true;
 
   final StopWatchTimer _stopWatchTimer = StopWatchTimer(
