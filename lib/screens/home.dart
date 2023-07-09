@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../models/theme_controller.dart';
+import '../theme/theme_controller.dart';
 import 'clock_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -53,12 +53,15 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           children: [
             DrawerHeader(
+              margin: EdgeInsets.zero,
               decoration: BoxDecoration(
                 color: Colors.transparent,
               ),
               child: Image.asset(
-                'assets/nextwor1d.png',
-                height: 180,
+                'assets/ClockPro.png',
+                color: _themeController.isDarkMode.value
+                    ? Colors.white
+                    : Colors.black,
               ),
             ),
             ListTile(

@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:clock_pro/models/theme_controller.dart';
+import 'package:clock_pro/theme/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'models/theme_data.dart';
+import 'theme/theme_data.dart';
 import 'screens/home.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
