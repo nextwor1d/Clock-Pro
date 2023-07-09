@@ -4,6 +4,8 @@ import 'package:clock_pro/screens/timer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:icons_plus/icons_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/theme_controller.dart';
 import 'clock_screen.dart';
 
@@ -26,17 +28,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // AppBar
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(
-            Icons.tune,
-            color: Colors.grey,
-            size: 30,
+        leading: Builder(
+          builder: (BuildContext context) => IconButton(
+            icon: Icon(
+              Icons.tune,
+              color: Colors.grey,
+            ),
+            iconSize: 30,
+            onPressed: () => Scaffold.of(context).openDrawer(),
           ),
-          onPressed: () {},
         ),
         actions: [
           IconButton(
@@ -49,6 +52,49 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () => _themeController.toggleTheme(),
           ),
         ],
+      ),
+      // Drawer
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+              child: Image.asset(
+                'assets/nextwor1d.png',
+                height: 180,
+              ),
+            ),
+            ListTile(
+              leading: Icon(Bootstrap.github, size: 35),
+              trailing: Icon(Icons.open_in_new),
+              title: Text('nextwor1d',
+                  style: Theme.of(context).textTheme.titleLarge),
+              onTap: () => launchUrl(Uri.parse('https://github.com/nextwor1d'),
+                  mode: LaunchMode.externalApplication),
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Bootstrap.telegram, size: 35),
+              trailing: Icon(Icons.open_in_new),
+              title: Text('Flutter_Ninja',
+                  style: Theme.of(context).textTheme.titleLarge),
+              onTap: () => launchUrl(Uri.parse('https://t.me/flutter_ninja'),
+                  mode: LaunchMode.externalApplication),
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Bootstrap.instagram, size: 35),
+              trailing: Icon(Icons.open_in_new),
+              title: Text('Flutter_Hero',
+                  style: Theme.of(context).textTheme.titleLarge),
+              onTap: () => launchUrl(
+                  Uri.parse('https://instagram.com/flutter_hero'),
+                  mode: LaunchMode.externalApplication),
+            ),
+          ],
+        ),
       ),
       // Body
       body: IndexedStack(index: _currentIndex, children: tabs),
